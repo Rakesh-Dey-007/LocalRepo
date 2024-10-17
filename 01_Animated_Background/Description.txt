@@ -1,0 +1,9 @@
+✨ Animated Background with HTML, CSS, and JavaScript ✨
+
+I created a fun animated background using HTML, CSS, and JavaScript! 🎨 The background features colorful, randomly moving balls that create a dynamic, smooth, and fully responsive visual effect.
+
+🚀 Key Features:
+🎨 Vibrant colors
+⚡ Smooth motion
+📱 Responsive design
+♾️ Continuous animation.
