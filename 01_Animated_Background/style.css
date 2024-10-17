@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+}
+.ball {
+    position: absolute;
+    border-radius: 50%;
+}
+#auto-text {
+    position: relative;
+    font-size: 2em;
+    font-weight: bold;
+    color: cyan;
+    z-index: 10;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
