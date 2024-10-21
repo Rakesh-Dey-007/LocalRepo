@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Images/RD_Logo.png" type="image/x-icon">
+    <title>𝚁𝙳_𝙲𝚘𝚍𝚎𝙵𝚕𝚊𝚒𝚛</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&display=swap');
+
+        body {
+            margin: 0;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: #010101;
+        }
+
+        .container {
+            perspective: 700px;
+            width: 400px;
+            height: 400px;
+            display: grid;
+            place-items: center;
+        }
+
+        .card {
+            width: 250px;
+            height: 350px;
+            background-image: url("Images/Card_Img.jpg");
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 100px 10px rgba(63, 127, 242, 0.2);
+        }
+
+        .heading {
+            position: absolute;
+            top: 7vh;
+            color: cyan;
+            font-family: "Chakra Petch", serif;
+            letter-spacing: 2px;
+        }
+
+        .author {
+            position: absolute;
+            bottom: 7vh;
+            color: cyan;
+            font-family: "Chakra Petch", serif;
+            letter-spacing: 2px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1 class="heading">Card Effect</h1>
+    <div class="container">
+        <div class="card"></div>
+    </div>
+
+    <h1 class="author">RD CodeFlair</h1>
+
+
+
+    <script>
+        const container = document.querySelector(".container");
+        const card = document.querySelector(".card");
+
+        container.addEventListener("mousemove", (e) => {
+            const xPos = (window.innerWidth / 2 - e.pageX) / 10;
+            const yPos = (window.innerHeight / 2 - e.pageY) / 10;
+
+            card.style.transform = `rotateX(${yPos}deg) rotateY(${xPos}deg)`;
+        })
+
+        container.addEventListener("mouseenter", (e) => {
+            card.style.transition = "none";
+        })
+
+        container.addEventListener("mouseleave", (e) => {
+            card.style.transition = "transform 0.3s";
+            card.style.transform = "none";
+        })
+    </script>
+
+</body>
+
+</html>
