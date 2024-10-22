@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    margin: 0;
+    background: #020202;
+    cursor: crosshair;
+    cursor: default;
+}
+
+canvas {
+    display: block;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(19, 20, 22);
+    overflow: hidden;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+h1{
+    color: cyan;
+    position: absolute;
+    bottom: 3vh;
+    left: 43%;
+
+}
