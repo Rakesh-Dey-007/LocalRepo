@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    background: #020202;
+    cursor: crosshair;
+}
+
+canvas {
+    display: block;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(19, 20, 22);
+    overflow: hidden;
+    font-family: Lato, "Trebuchet MS", "Verdana", "sans-serif";
+    cursor: default;
+}
+
+/* Birthday Card Styling */
+
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 425px;
+    border: 10px solid #9612eb;
+    margin: 60px auto 0 auto;
+    box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to bottom, rgb(90, 90, 90), rgba(190, 190, 190, 0.5)), url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    background-color: #e6f0e6;
+    z-index: 2;
+}
+
+.card .text-container {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        width: 80%;
+        height: 56%;
+    }
+
+    .card .author {
+        color: cyan;
+        font-size: 30px;
+        letter-spacing: 2px;
+        z-index: 2;
+        position: absolute;
+        bottom: -17vh;
+        left: 10vw;
+        font-family: "Chakra Petch", serif;
+    }
+
+}
+
+@media (min-width:769px) and (max-width: 800px) {
+    .card {
+        width: 80%;
+        height: 22%;
+    }
+
+    .card .author {
+        font-size: 30px;
+        left: 5vw;
+    }
+}
+
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.card .text-container #head {
+    font-family: "Chakra Petch", serif;
+    font-size: 1.5em;
+    margin: 60px auto 60px auto;
+}
+
+.card p {
+    font-size: 1.1em;
+    line-height: 1.4;
+    font-family: 'Nobile';
+    color: black;
+    font-style: italic;
+    text-align: center;
+    margin: 30px auto 0px auto;
+}
+
+.card .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -10px 0px 0px -10px;
+    border: 10px solid #9612eb;
+    backface-visibility: hidden;
+    background-color: #9612eb;
+    background-size: contain;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+}
+
+.card:hover .front {
+    transform: perspective(800px) rotateY(-170deg);
+    background-color: #41718d;
+}
+
+.card:hover .back {
+    transform: perspective(800px) rotateY(-170deg);
+    box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-color: #d2dcd2;
+
+}
+
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #9612eb;
+    margin: -10px 0px 0px -10px;
+    backface-visibility: visible;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+    background-color: #e6f0e6;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.imgset {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -215px;
+}
+
+.imgset img {
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+}
+
+.author {
+    color: cyan;
+    font-size: 30px;
+    letter-spacing: 2px;
+    z-index: 2;
+    position: absolute;
+    bottom: -17vh;
+    left: 3vw;
+    font-family: "Chakra Petch", serif;
+
+
+}
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
