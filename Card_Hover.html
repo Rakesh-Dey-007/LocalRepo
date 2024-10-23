@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Images/RD_Logo.png" type="image/x-icon">
+    <title>𝚁𝙳_𝙲𝚘𝚍𝚎𝙵𝚕𝚊𝚒𝚛</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Poppins:wght@400;500&display=swap");
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Chakra Petch", sans-serif;
+        }
+
+        :root {
+            --gradient: conic-gradient(from 90deg at 50% 50%,
+                    rgb(251, 55, 60),
+                    rgba(252, 114, 28, 1),
+                    rgba(255, 220, 0, 1),
+                    rgba(27, 206, 255, 1),
+                    rgba(42, 107, 255, 1),
+                    rgba(217, 41, 255, 1),
+                    rgba(255, 10, 92, 1));
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0f0f0f;
+        }
+
+        h1 {
+            font-size: 65px;
+            color: rgb(71, 71, 71);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 20px;
+            color: rgb(174, 174, 174);
+            font-weight: 600;
+        }
+
+        .card {
+            --start: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 280px;
+            height: 350px;
+            margin: 10px;
+            padding: 10px 40px;
+            background-color: #040404;
+            border-radius: 14px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .card::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 14px;
+            border: 2px solid transparent;
+            background: var(--gradient);
+            background-attachment: fixed;
+            mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start) - (20 * 1.1)) * 1deg), #ffffff1f 0deg, white, #ffffff00 100deg);
+            mask-composite: intersect;
+            mask-clip: padding-box, border-box;
+            opacity: 0;
+            transition: 0.5s ease;
+        }
+
+        .glow {
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(14px);
+        }
+
+        .glow::before {
+            position: absolute;
+            content: "";
+            width: 98%;
+            height: 98%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 14px;
+            border: 15px solid transparent;
+            background: var(--gradient);
+            background-attachment: fixed;
+            mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start) - (20 * 1.1)) * 1deg), #000 0deg, #ffffff, rgba(0, 0, 0, 0) 100deg);
+            mask-composite: intersect;
+            mask-clip: padding-box, border-box;
+            opacity: 0;
+            transition: 1s ease;
+        }
+
+        .card:hover>.glow::before {
+            opacity: 1;
+        }
+
+        .card:hover::before {
+            opacity: 0.6;
+        }
+
+        .heading{
+            font-family: "Chakra Petch", sans-serif;
+            color: cyan;
+            position: absolute;
+            top: 5vh;
+            font-size: 50px;
+            letter-spacing: 2px;
+        }
+        .author{
+            font-family: "Chakra Petch", sans-serif;
+            color: cyan;
+            position: absolute;
+            bottom: 7vh;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="heading">Card Hover Effect</h2>
+    <div class="card">
+        <div class="glow"></div>
+        <h1>01</h1>
+        <p>Move your mouse cursor over the card.</p>
+    </div>
+    <div class="card">
+        <div class="glow"></div>
+        <h1>02</h1>
+        <p>Move your mouse cursor over the card.</p>
+    </div>
+    <div class="card">
+        <div class="glow"></div>
+        <h1>03</h1>
+        <p>Move your mouse cursor over the card.</p>
+    </div>
+    <h2 class="author">RD CodeFlair</h2>
+</body>
+<!-- <script src="script.js"></script> -->
+
+<script>const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", handleMouseMove);
+    });
+    
+    function handleMouseMove(e) {
+      const rect = this.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left - rect.width / 2;
+      const mouseY = e.clientY - rect.top - rect.height / 2;
+    
+      let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
+    
+      angle = (angle + 360) % 360;
+    
+      this.style.setProperty("--start", angle + 60);
+    }
+    </script>
+
+</html>
